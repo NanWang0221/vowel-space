@@ -1,0 +1,96 @@
+w01aw manipulation landmark (start) = 0.09213671875
+w01aw manipulation landmark (end) = 0.42533333333333334
+w01iy manipulation landmark (start) = 0.07205397727272728
+w01iy manipulation landmark (end) = 0.3105405585106383
+Formant continuum script information
+
+Number of steps:
+5
+
+Number of formants analyzed
+4
+
+Maximum frequency for formant analysis
+4300
+
+Which formants were modified
+F1: 1
+F2: 1
+F3: 0
+F4: 0
+F5: 0
+
+Overrode bands to be the following:
+F1 bw: 70
+F2 bw: 85
+F3 bw: 140
+F4 bw: 160
+F5 bw: 250
+
+Pitch analysis range
+75
+250
+
+Crossover frequency to restore high frequencies from original sound
+4000
+
+Width of crossover frequency filter
+500
+
+upper limit of low frequencies restored from original sound:
+120
+filter width for low-frequency restoration
+80
+
+Final intensity of outputs
+70
+
+Original sampling frequency
+16000
+
+LPC order (number of poles)
+10
+
+Resample rate for LPC (freq range of the LPC poles)
+8600
+
+Sound selection info
+
+Base sound selection (decomposed into source & filter)
+w01aw
+
+Comparison sound selection (comparing formant tracks)
+w01iy
+
+Start of manipulation in base sound w01aw
+0.09213671875
+
+End of manipulation in base sound w01aw
+0.42533333333333334
+
+Start of manipulation in comparison sound w01iy
+0.07205397727272728
+
+End of manipulation in comparison sound w01iy
+0.3105405585106383
+
+Blend/overlap duration between leading, manipulated, and trailing segments
+0.003
+
+Original intensity of manipulated portion
+79.76809537231654
+
+Method of frequency interpolation
+Bark frequency scale
+
+
+Destination for output files
+Parent directory for file folders:
+/Users/nwang40/Library/CloudStorage/Dropbox/phd/lin416/assignment/final/stim-centralized
+
+Folder with the output from the formant manipulation scipt
+aw-iy_continuum
+
+Base name for the output sound files
+Step_
+

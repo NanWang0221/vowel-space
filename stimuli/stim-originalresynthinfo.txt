@@ -1,0 +1,1 @@
+'soundname$'	Int_number	F1_change	F2_change	F3_change	F1_before	F1_after	F2_before	F2_after	F1_delta	F2_delta	F1_DeltaDelta	F2_DeltaDelta
