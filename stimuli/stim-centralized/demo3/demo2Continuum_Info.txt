@@ -1,0 +1,96 @@
+w02aw manipulation landmark (start) = 0.1322516447368421
+w02aw manipulation landmark (end) = 0.64784375
+w02iy manipulation landmark (start) = 0.17004166666666667
+w02iy manipulation landmark (end) = 0.6225104166666666
+Formant continuum script information
+
+Number of steps:
+10
+
+Number of formants analyzed
+4
+
+Maximum frequency for formant analysis
+4300
+
+Which formants were modified
+F1: 1
+F2: 1
+F3: 1
+F4: 0
+F5: 0
+
+Overrode bands to be the following:
+F1 bw: 70
+F2 bw: 85
+F3 bw: 140
+F4 bw: 160
+F5 bw: 250
+
+Pitch analysis range
+75
+250
+
+Crossover frequency to restore high frequencies from original sound
+4000
+
+Width of crossover frequency filter
+500
+
+upper limit of low frequencies restored from original sound:
+120
+filter width for low-frequency restoration
+80
+
+Final intensity of outputs
+70
+
+Original sampling frequency
+16000
+
+LPC order (number of poles)
+10
+
+Resample rate for LPC (freq range of the LPC poles)
+8600
+
+Sound selection info
+
+Base sound selection (decomposed into source & filter)
+w02aw
+
+Comparison sound selection (comparing formant tracks)
+w02iy
+
+Start of manipulation in base sound w02aw
+0.1322516447368421
+
+End of manipulation in base sound w02aw
+0.64784375
+
+Start of manipulation in comparison sound w02iy
+0.17004166666666667
+
+End of manipulation in comparison sound w02iy
+0.6225104166666666
+
+Blend/overlap duration between leading, manipulated, and trailing segments
+0.003
+
+Original intensity of manipulated portion
+79.84696107234126
+
+Method of frequency interpolation
+Bark frequency scale
+
+
+Destination for output files
+Parent directory for file folders:
+/Users/nwang40/Documents/Gitrepo/vowel-space/stimuli/stim-centralized/demo3
+
+Folder with the output from the formant manipulation scipt
+demo2
+
+Base name for the output sound files
+w02_
+

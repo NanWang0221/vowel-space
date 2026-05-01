@@ -3,12 +3,90 @@ title: "results"
 output: html_document
 date: "2026-04-25"
 ---
-
-# load vowel data and manipulated continuum data
+# load library and descriptive
 
 ```{r}
 library(tidyverse)
 library(magrittr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(psych)
+library(lme4)
+library(lmerTest)
+library(MuMIn)
+library(dplyr)
+```
+
+```{r}
+data <- read.csv("vowel_info.csv")
+
+# Vowel space (F1 x F2) colored by centralization
+ggplot(data, aes(x = F2, y = F1, color = factor(centralized_index),
+                 shape = vowel_group)) +
+  geom_point(size = 3, alpha = 0.7) +
+  scale_x_reverse() + scale_y_reverse() +  # phonetic convention
+  labs(color = "centralized_index", title = "F1 x F2 vowel space") +
+  theme_minimal()
+
+# NH-HL agreement across centralization
+ggplot(data, aes(x = centralized_index, y = corr_NH_HL,
+                 color = vowel_group)) +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  stat_summary(fun = mean, geom = "line", aes(group = vowel_group), size = 1) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
+  labs(title = "NH-HL model agreement by centralization") +
+  theme_minimal()
+
+# NH vs HL: how each model treats centralization
+data %>%
+  pivot_longer(c(corr_01_10_NH, corr_01_10_HL),
+               names_to = "model", values_to = "corr") %>%
+  ggplot(aes(x = centralized_index, y = corr,
+             color = model, linetype = vowel_group)) +
+  stat_summary(fun = mean, geom = "line", size = 1) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
+  labs(title = "Each model's correlation with the centralized vowel") +
+  theme_minimal()
+
+```
+# linear regression
+
+```{r}
+
+
+# Standardize predictors so coefficients are comparable
+data_z <- data %>%
+  mutate(across(c(F1, F2, centralized_index), ~ as.numeric(scale(.))))
+
+# Acoustic-only model
+m_acoustic <- lmer(corr_01_10_NH ~ F1 + F2 + vowel_group + 
+                    (1 | talker), data = data_z, REML = FALSE)
+summary(m_acoustic)
+
+# Centralization-only model
+m_cent     <- lmer(corr_01_10_NH ~ centralized_index + vowel_group + 
+                   (1 | talker), data = data_z, REML = FALSE)
+summary(m_cent)
+
+m_full <- lmer(corr_01_10_NH ~ F1 + F2 + centralized_index + vowel_group + 
+                               (1 | talker), 
+               data = data_z, REML = FALSE)
+
+# Does centralization add anything beyond F1 + F2?
+anova(m_acoustic, m_full)
+
+# Do F1 + F2 add anything beyond centralization?
+anova(m_cent, m_full)
+```
+
+
+
+
+
+# load vowel data and manipulated continuum data
+
+```{r}
 
 vowels <- tibble(
   sound = c("w01ae", "w01ah", "w01aw", "w01eh", "w01ey", "w01er",
